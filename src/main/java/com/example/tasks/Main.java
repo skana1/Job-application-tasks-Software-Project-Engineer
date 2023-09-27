@@ -80,13 +80,14 @@ public class Main {
     //Exercise 2
     public static boolean areIdenticalObjects(Object firstObject, Object secondObject){
 
+        //supozojme qe te dy objektet i kane emrat e fushave (name, age) njesoj.
+        // nqs nuk i kane -> throw error dhe kthehet qe nuk jane identike
         try {
             boolean areIdentical = true;
 
             Field[] properties = firstObject.getClass().getDeclaredFields();
             for (Field f : properties) {
 
-                String fieldName = f.getName();
                 Object fieldValue1 = f.get(firstObject);
                 Object fieldValue2 = f.get(secondObject);
                 // System.out.println(fieldValue1);
@@ -115,7 +116,7 @@ public class Main {
         return firstNumber == sum;
     }
 
-    //Exercise 7
+    //Exercise 6
     public static int findNetworkEndpoint(int startNodeId, ArrayList<Integer> fromIds, ArrayList<Integer> toIds) {
 
         if (fromIds.size() > 1000 || toIds.size() > 1000 || fromIds.size() == 0 || toIds.size() == 0) {
